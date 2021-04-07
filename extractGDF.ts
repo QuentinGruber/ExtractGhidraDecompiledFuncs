@@ -9,7 +9,6 @@ async function extract(f: Deno.File) {
   for await (const line of readline(f)) {
     const LineClearText = new TextDecoder().decode(line);
     if (LineClearText.includes("FUN") && LineClearText.split("(")[0].replace(/ /g, "")[0] !=="F") {
-      funcBody = "";
       LineClearText.split(" ").forEach((word) => {
         if (
           !nextFunctionName.length &&
